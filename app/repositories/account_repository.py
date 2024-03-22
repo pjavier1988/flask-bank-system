@@ -15,7 +15,7 @@ class AccountRepository(BaseRepository):
         return Account.query.filter_by(account_number = account_number).first()
 
     def list(self):
-        return Account.query.all()
+        return Account.query.filter(Account.user_id.isnot(None)).all()
     
     def update( self, account, new_value, commit= False):
         account.balance = new_value

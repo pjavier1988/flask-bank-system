@@ -13,7 +13,6 @@ class TransactionSchema(SQLAlchemyAutoSchema):
         sqla_session = db.session
         load_instance = True
 
-    # Define transaction fields here. For simplicity, using auto_field for all:
     amount = auto_field()
     date = auto_field()
     type = auto_field()
@@ -24,10 +23,10 @@ class AccountCreateSchema(SQLAlchemyAutoSchema):
         model = Account
         sqla_session = db.session
         load_instance = True
-        include_fk = True  # Includes foreign keys
+        include_fk = True 
 
     account_number = auto_field(required=True)
-    balance = auto_field(missing=0.0)  # Defaults to 0.0 if not provided
+    balance = auto_field(missing=0.0) 
     description = auto_field(missing=None)
     user_id = auto_field(required=True)
 
